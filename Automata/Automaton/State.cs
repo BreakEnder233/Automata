@@ -48,6 +48,14 @@ namespace Automata
             }
             return this;
         }
+        internal void EnterForce(T context)
+        {
+            _entryEvent?.Invoke(context);
+        }
+        internal void ExitForce(T context)
+        {
+            _exitEvent?.Invoke(context);
+        }
         internal void AddEntry(EntryFunction entry)
         {
             _entryEvent += entry;

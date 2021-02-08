@@ -57,7 +57,12 @@ namespace Automata
             _currentState?.Update(_context);
             _currentState = _currentState?.GetNextState(_context);
         }
-
+        public void TransferForce(int state)
+        {
+            _currentState.ExitForce(_context);
+            _currentState = _states[state];
+            _currentState.EnterForce(_context);
+        }
         #endregion
 
 
